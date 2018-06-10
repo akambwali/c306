@@ -83,7 +83,11 @@ public class GrilleTest {
      */
     @Test
     public final void testGetDimension() {
-       //TODO
+       System.out.println("Test de la methode getDimension() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_VIDE_9);
+        sudoku.setGrille(GRILLE_INCOMPLETE_9);
+        assertEquals("Test dimension sur grille vide.",
+                9, sudoku.getDimension());
     }
 
     /**
@@ -91,7 +95,11 @@ public class GrilleTest {
      */
     @Test
     public final void testSetValue() {
-        //TODO
+         System.out.println("Test de la methode setValue() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_INCOMPLETE_9);
+        sudoku.setValue(1, 1, '2');
+        char recup = sudoku.getValue(1, 1);
+        assertEquals('2', recup);
     }
 
     /**
@@ -99,7 +107,30 @@ public class GrilleTest {
      */
     @Test
     public final void testGetValue() {
-        //TODO
+        System.out.println("Test de la methode getValue() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_INCOMPLETE_9);
+        char recup = sudoku.getValue(2, 8);
+        assertEquals('3', recup);
+        try {
+            char recupIndexXNegatif = sudoku.getValue(-2, 5);
+            fail("Une IllegalArgumentException aurait "
+                    + "du etre levee pour l'index x");
+        } catch (IllegalArgumentException e) {
+
+        }
+        try {
+            char recupIndexYNegatif = sudoku.getValue(-5, 5);
+            fail("Une IllegalArgumentException "
+                    + "aurait du etre levee pour l'index y");
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            char recupIndexYNegatif = sudoku.getValue(-5,8);
+            fail("Une IllegalArgumentException "
+                    + "aurait du etre levee pour l'index y");
+        } catch (IllegalArgumentException e) {
+
+        }
     }
 
     /**
@@ -107,7 +138,32 @@ public class GrilleTest {
      */
     @Test
     public final void testSetValueLeveesDExceptions() {
-        //TODO
+        System.out.println("Test levees d'exceptions (valeurs incorrectes pour"
+                + " x, y et la valeur) pour la methode setValue() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
+
+        try {
+            sudoku.setValue(15, 5, '6');
+            fail("Une IllegalArgumentException aurait du etre levee pour x");
+        } catch (IllegalArgumentException e) {
+
+        }
+
+        try {
+            sudoku.setValue(3, 20, '6');
+            fail("Une IllegalArgumentException aurait du etre levee pour y");
+        } catch (IllegalArgumentException e) {
+
+        }
+
+        // Valeur interdite
+        try {
+            sudoku.setValue(3, 5, 'z');
+            fail("Une IllegalArgumentException aurait "
+                    + "du etre levee pour la valeur");
+        } catch (IllegalArgumentException e) {
+
+        }
     }
 
     /**
@@ -115,7 +171,21 @@ public class GrilleTest {
      */
     @Test
     public final void testGetValueLeveesDExceptions() {
-        //TODO
+        System.out.println("Test levees d'exceptions (s, y) "
+                + "pour la methode getValue() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
+        try {
+            char valeur = sudoku.getValue(15, 2);
+            fail("Une IllegalArgumentException aurait du etre levee pour x");
+        } catch (IllegalArgumentException e) {
+
+        }
+        try {
+            char valeur = sudoku.getValue(4, 12);
+            fail("Une IllegalArgumentException aurait du etre levee pour y");
+        } catch (IllegalArgumentException e) {
+
+        }
     }
 
     /**
@@ -123,7 +193,13 @@ public class GrilleTest {
      */
     @Test
     public final void testComplete() {
-        //TODO
+         System.out.println("Test de la methode complete() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
+        assertEquals("Test de completude de la grille.", true,
+                sudoku.complete());
+        Grille sudokuIncomplet = new GrilleImpl(GRILLE_INCOMPLETE_9);
+        assertEquals("Test de completude de la grille.", false,
+                sudokuIncomplet.complete());
     }
 
     /**
