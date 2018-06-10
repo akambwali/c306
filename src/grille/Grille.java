@@ -3,6 +3,7 @@ package grille;
 /**
  * Interface d'une grille de sudoku.
  * @author KAM-WAL
+ * @author AKALA Kouma
  *
  */
 public interface Grille {

@@ -10,6 +10,7 @@ import grille.GrilleImpl;
  *
  * Classe de test du solveur de grille.
  *
+ * @author KAM-WAL
  * @author AKALA Kouma
  *
  */
