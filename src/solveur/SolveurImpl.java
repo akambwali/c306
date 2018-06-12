@@ -28,6 +28,7 @@ public final class SolveurImpl implements ISolveur {
     /**
      * Verifier la validite de la grille.
      *
+     * @return true si la grille est valide, false sinon
      */
     public boolean verifierGrille() {
         char[][] grillecontent = grille.getGrille().clone();
@@ -54,7 +55,8 @@ public final class SolveurImpl implements ISolveur {
 
     /**
      * Resolution de la grille de Sudoku.
-     *
+     * 
+     * @return true si une solution est disponible, false sinon
      */
     public boolean resoudre() {
         int dimension;
@@ -82,6 +84,8 @@ public final class SolveurImpl implements ISolveur {
     
     /**
      * Verification de la resolution de la grille.
+     * 
+     * @return true si la grille est resolue, false sinon
      *
      */
     public boolean resolu() {
