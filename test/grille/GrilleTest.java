@@ -61,6 +61,13 @@ public class GrilleTest {
         {'1', '5', '4', '7', '9', '6', '8', '2', '3'},
         {'2', '3', '9', '8', '4', '1', '5', '6', '7'}};
 
+    static final int TEST_GETDIMENSION_DIMENSION_GRILLE = 9;
+
+    static final int TEST_GETVALUE_VAL_Y = 8;
+
+    static final int TEST_GETVALUE_INDEX_X_NEGATIF = -2;
+
+    static final int TEST_GETVALUE_INDEX_X_NEGATIF_Y = 5;
 
     /**
      * Méthode principale.
@@ -87,7 +94,7 @@ public class GrilleTest {
         Grille sudoku = new GrilleImpl(GRILLE_VIDE_9);
         sudoku.setGrille(GRILLE_INCOMPLETE_9);
         assertEquals("Test dimension sur grille vide.",
-                9, sudoku.getDimension());
+                TEST_GETDIMENSION_DIMENSION_GRILLE, sudoku.getDimension());
     }
 
     /**
@@ -109,10 +116,10 @@ public class GrilleTest {
     public final void testGetValue() {
         System.out.println("Test de la methode getValue() ...");
         Grille sudoku = new GrilleImpl(GRILLE_INCOMPLETE_9);
-        char recup = sudoku.getValue(2, 8);
+        char recup = sudoku.getValue(2, TEST_GETVALUE_VAL_Y);
         assertEquals('3', recup);
         try {
-            char recupIndexXNegatif = sudoku.getValue(-2, 5);
+            char recupIndexXNegatif = sudoku.getValue(TEST_GETVALUE_INDEX_X_NEGATIF, TEST_GETVALUE_INDEX_X_NEGATIF_Y);
             fail("Une IllegalArgumentException aurait "
                     + "du etre levee pour l'index x");
         } catch (IllegalArgumentException e) {
