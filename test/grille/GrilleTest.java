@@ -61,12 +61,24 @@ public class GrilleTest {
         {'1', '5', '4', '7', '9', '6', '8', '2', '3'},
         {'2', '3', '9', '8', '4', '1', '5', '6', '7'}};
 
+    /**
+     * Test getDimension(). Dimension grille.
+     */
     static final int TEST_GETDIMENSION_DIMENSION_GRILLE = 9;
 
+    /**
+     * Test getValue(). Valeur de y.
+     */
     static final int TEST_GETVALUE_VAL_Y = 8;
 
+    /**
+     * Test getValue(). Index x négatif.
+     */
     static final int TEST_GETVALUE_INDEX_X_NEGATIF = -2;
 
+    /**
+     * Test getValue(). Index x négatif valeur y.
+     */
     static final int TEST_GETVALUE_INDEX_X_NEGATIF_Y = 5;
 
     /**
