@@ -45,7 +45,10 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet de renseigner une valeur dans la grille Sudoku.
-     * 
+     * @param x Index de ligne
+     * @param y Index de colonne
+     * @param value Valeur a verifier
+     * @throws IllegalArgumentException si x ou y incorrect.
      */
     public void setValue(final int x, final int y, final char value)
             throws IllegalArgumentException {
@@ -56,7 +59,10 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet de recuperer une valeur de la grille.
-     * 
+     * @param x Index de ligne
+     * @param y Index de colonne
+     * @return Caractere a la ligne x et la colonne y
+     * @throws IllegalArgumentException si x ou y incorrect.
      */
     public char getValue(final int x, final int y)
             throws IllegalArgumentException {
@@ -74,7 +80,8 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet de verifier qu'une grille est complete.
-     * 
+     *
+     * @return true si grille complete, false sinon
      */
     public boolean complete() {
         for (int x = 0; x < this.getDimension(); x++) {
@@ -90,6 +97,11 @@ public final class GrilleImpl implements Grille {
     /**
      * Permet de verifier qu'une valeur a mettre dans la grille est possible.
      * 
+     * @param x Index de ligne
+     * @param y Index de colonne
+     * @param value Valeur a verifier
+     * @return true si valeur possible, false sinon
+     * @throws IllegalArgumentException si x ou y incorrect.
      */
     public boolean possible(final int x, final int y, final char value)
             throws IllegalArgumentException {
@@ -136,6 +148,7 @@ public final class GrilleImpl implements Grille {
     /**
      * Permet de modifier le tableau representant la grille.
      * 
+     * @param grilleTab Nouvelle grille
      */
     public void setGrille(final char[][] grilleTab) {
         this.grille = grilleTab;
@@ -144,6 +157,8 @@ public final class GrilleImpl implements Grille {
     /**
      * Methode utilitaire permettant de verifier qu'un caractere est possible.
      * 
+     * @param caractere Caractere a verifier.
+     * @return true si oui, false sinon
      */
     private boolean caracterePossible(final char caractere) {
         for (int i = 0; i < this.getDimension(); i++) {
