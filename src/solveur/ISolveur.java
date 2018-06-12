@@ -17,13 +17,18 @@ public interface ISolveur {
 
     /**
      * Resoud la grille passee en parametre.
-     *
+     * 
+     * @throws IllegalArgumentException si la grille à résoudre n'est pas
+     * valable ou si aucune solution n'a pu être calculée
+     * @return true si une solution est disponible, false sinon
      */
     boolean resoudre();
 
     /**
      * Verifie si la grille est resolue.
      *
+     * @throws IllegalArgumentException si la grille non valide
+     * @return true si la grille est resolue, false sinon
      */
     boolean resolu();
 
