@@ -6,7 +6,9 @@ import grille.GrilleImpl;
 /**
  *
  * Classe d'implementation de l'interface solveur.
+ *
  * @author KAM-WAL
+ * @author AKALA Kouma
  *
  */
 public final class SolveurImpl implements ISolveur {
@@ -55,7 +57,7 @@ public final class SolveurImpl implements ISolveur {
 
     /**
      * Resolution de la grille de Sudoku.
-     * 
+     *
      * @return true si une solution est disponible, false sinon
      */
     public boolean resoudre() {
@@ -64,8 +66,8 @@ public final class SolveurImpl implements ISolveur {
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
                 if (grille.getGrille()[i][j] == GrilleImpl.EMPTY) {
-                for (int k = 0; k < dimension; k = k + 1) {
-                    char val = Grille.POSSIBLE_9[k];
+                    for (int k = 0; k < dimension; k = k + 1) {
+                        char val = Grille.POSSIBLE_9[k];
                         try {
                             grille.setValue(i + 1, j + 1, val);
                             if (resoudre()) {
@@ -74,17 +76,17 @@ public final class SolveurImpl implements ISolveur {
                         } catch (IllegalArgumentException ex) {
                             System.out.println("Erreur. Valeur non valide.");
                         }
-                }
+                    }
                     return false;
                 }
             }
         }
         return true;
     }
-    
+
     /**
      * Verification de la resolution de la grille.
-     * 
+     *
      * @return true si la grille est resolue, false sinon
      *
      */
