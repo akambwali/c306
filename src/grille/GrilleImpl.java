@@ -1,9 +1,9 @@
 package grille;
 
-
 /**
  *
  * Implementation d'une interface modelisant une grille Sudoku.
+ *
  * @author KAM-WAL
  * @author AKALA Kouma
  *
@@ -37,6 +37,7 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet d'avoir la dimension d'une grille Sudoku.
+     *
      * @return Dimension de la grille.
      */
     public int getDimension() {
@@ -45,6 +46,7 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet de renseigner une valeur dans la grille Sudoku.
+     *
      * @param x Index de ligne
      * @param y Index de colonne
      * @param value Valeur a verifier
@@ -59,6 +61,7 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet de recuperer une valeur de la grille.
+     *
      * @param x Index de ligne
      * @param y Index de colonne
      * @return Caractere a la ligne x et la colonne y
@@ -96,7 +99,7 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Permet de verifier qu'une valeur a mettre dans la grille est possible.
-     * 
+     *
      * @param x Index de ligne
      * @param y Index de colonne
      * @param value Valeur a verifier
@@ -116,21 +119,21 @@ public final class GrilleImpl implements Grille {
             throw new IllegalArgumentException("Valeur non autorisee");
         }
 
-        // Verification sur la ligne
+        // Verification d'une valeur sur la ligne
         for (int i = 0; i < this.getDimension(); i++) {
             if (this.grille[x][i] == value) {
                 return false;
             }
         }
 
-        // Verification sur la colonne
+        // Verification d''une valeur sur la colonne
         for (int i = 0; i < this.getDimension(); i++) {
             if (this.grille[i][y] == value) {
                 return false;
             }
         }
 
-        // Verification dans le bloc
+        // Verification d''une valeur dans le bloc
         int dimensionBloc = (int) Math.sqrt(this.getDimension());
         int i = (x / dimensionBloc) * dimensionBloc;
         int j = (y / dimensionBloc) * dimensionBloc;
@@ -141,13 +144,12 @@ public final class GrilleImpl implements Grille {
                 }
             }
         }
-
         return true;
     }
 
     /**
      * Permet de modifier le tableau representant la grille.
-     * 
+     *
      * @param grilleTab Nouvelle grille
      */
     public void setGrille(final char[][] grilleTab) {
@@ -156,7 +158,7 @@ public final class GrilleImpl implements Grille {
 
     /**
      * Methode utilitaire permettant de verifier qu'un caractere est possible.
-     * 
+     *
      * @param caractere Caractere a verifier.
      * @return true si oui, false sinon
      */
