@@ -162,18 +162,14 @@ public class GrilleTest {
         char recup = sudoku.getValue(2, TEST_GETVALUE_VAL_Y);
         assertEquals('3', recup);
         try {
-            char recupIndexXNegatif = sudoku.getValue(
-                    TEST_GETVALUE_INDEX_X_NEGATIF, 
-                    TEST_GETVALUE_INDEX_X_NEGATIF_Y);
+            char recupIndexXNegatif = sudoku.getValue(TEST_GETVALUE_INDEX_X_NEGATIF, TEST_GETVALUE_INDEX_X_NEGATIF_Y);
             fail("Une IllegalArgumentException aurait "
                     + "du etre levee pour l'index x");
         } catch (IllegalArgumentException e) {
 
         }
         try {
-            char recupIndexYNegatif = sudoku.getValue(
-                    TEST_GETVALUE_INDEX_Y_NEGATIF_X,
-                    TEST_GETVALUE_INDEX_Y_NEGATIF);
+            char recupIndexYNegatif = sudoku.getValue(TEST_GETVALUE_INDEX_Y_NEGATIF_X,TEST_GETVALUE_INDEX_Y_NEGATIF);
             fail("Une IllegalArgumentException "
                     + "aurait du etre levee pour l'index y");
         } catch (IllegalArgumentException e) {
@@ -191,16 +187,14 @@ public class GrilleTest {
         Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
 
         try {
-            sudoku.setValue(TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_X,
-                    TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_Y, '6');
+            sudoku.setValue(TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_X, TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_Y, '6');
             fail("Une IllegalArgumentException aurait du etre levee pour x");
         } catch (IllegalArgumentException e) {
 
         }
 
         try {
-            sudoku.setValue(TEST_SETVALUE_LEVEE_EXCEPTION_Y_VAL_X, 
-                    TEST_SETVALUE_LEVEE_EXCEPTION_Y_VAL_Y, '6');
+            sudoku.setValue(TEST_SETVALUE_LEVEE_EXCEPTION_Y_VAL_X, TEST_SETVALUE_LEVEE_EXCEPTION_Y_VAL_Y, '6');
             fail("Une IllegalArgumentException aurait du etre levee pour y");
         } catch (IllegalArgumentException e) {
 
