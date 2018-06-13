@@ -110,8 +110,36 @@ public class GrilleTest {
      * Test setValueLeveesDExceptions() pour y. Valeur de y.
      */
     static final int TEST_SETVALUE_LEVEE_EXCEPTION_Y_VAL_Y = 20;
+    
+        /**
+     * Test setValueLeveesDExceptions() caractere interdit. Valeur de x.
+     */
+    static final int TEST_SETVALUE_LEVEE_EXCEPTION_VAL_INTERDITE_X = 3;
 
+    /**
+     * Test setValueLeveesDExceptions() caractere interdit. Valeur de y.
+     */
+    static final int TEST_SETVALUE_LEVEE_EXCEPTION_VAL_INTERDITE_Y = 5;
 
+    /**
+     * Test getValueLeveesDExceptions() pour x. Valeur de x.
+     */
+    static final int TEST_GETVALUE_LEVEE_EXCEPTION_X_VAL_X = 15;
+
+    /**
+     * Test getValueLeveesDExceptions() pour x. Valeur de y.
+     */
+    static final int TEST_GETVALUE_LEVEE_EXCEPTION_X_VAL_Y = 2;
+
+   /**
+     * Test getValueLeveesDExceptions() pour y. Valeur de x.
+     */
+    static final int TEST_GETVALUE_LEVEE_EXCEPTION_Y_VAL_X = 4;
+
+    /**
+     * Test getValueLeveesDExceptions() pour y. Valeur de y.
+     */
+    static final int TEST_GETVALUE_LEVEE_EXCEPTION_Y_VAL_Y = 12;
     /**
      * Méthode principale.
      * @param args arguments de la méthode main
@@ -208,7 +236,7 @@ public class GrilleTest {
 
         // Valeur interdite
         try {
-            sudoku.setValue(3, 5, 'z');
+            sudoku.setValue(TEST_SETVALUE_LEVEE_EXCEPTION_VAL_INTERDITE_X, TEST_SETVALUE_LEVEE_EXCEPTION_VAL_INTERDITE_Y, 'z');
             fail("Une IllegalArgumentException aurait "
                     + "du etre levee pour la valeur");
         } catch (IllegalArgumentException e) {
@@ -225,13 +253,13 @@ public class GrilleTest {
                 + "pour la methode getValue() ...");
         Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
         try {
-            char valeur = sudoku.getValue(15, 2);
+            char valeur = sudoku.getValue(TEST_GETVALUE_LEVEE_EXCEPTION_X_VAL_X, TEST_GETVALUE_LEVEE_EXCEPTION_X_VAL_Y);
             fail("Une IllegalArgumentException aurait du etre levee pour x");
         } catch (IllegalArgumentException e) {
 
         }
         try {
-            char valeur = sudoku.getValue(4, 12);
+            char valeur = sudoku.getValue(TEST_GETVALUE_LEVEE_EXCEPTION_Y_VAL_X, TEST_GETVALUE_LEVEE_EXCEPTION_Y_VAL_Y);
             fail("Une IllegalArgumentException aurait du etre levee pour y");
         } catch (IllegalArgumentException e) {
 
