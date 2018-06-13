@@ -82,26 +82,6 @@ public class GrilleTest {
     static final int TEST_GETVALUE_INDEX_X_NEGATIF_Y = 5;
 
     /**
-     * Test getValue(). Index y négatif
-     */
-    static final int TEST_GETVALUE_INDEX_Y_NEGATIF = 8;
-
-    /**
-     * Test getValue(). Index y négatif valeur x
-     */
-    static final int TEST_GETVALUE_INDEX_Y_NEGATIF_X = -5;
-
-    /**
-     * Test setValueLeveesDExceptions() pour x. Valeur de x.
-     */
-    static final int TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_X = 15;
-
-    /**
-     * Test setValueLeveesDExceptions() pour x. Valeur de y.
-     */
-    static final int TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_Y = 5;
-
-    /**
      * Méthode principale.
      * @param args arguments de la méthode main
      */
@@ -158,7 +138,13 @@ public class GrilleTest {
 
         }
         try {
-            char recupIndexYNegatif = sudoku.getValue(TEST_GETVALUE_INDEX_Y_NEGATIF_X, TEST_GETVALUE_INDEX_Y_NEGATIF);
+            char recupIndexYNegatif = sudoku.getValue(-5, 5);
+            fail("Une IllegalArgumentException "
+                    + "aurait du etre levee pour l'index y");
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            char recupIndexYNegatif = sudoku.getValue(-5,8);
             fail("Une IllegalArgumentException "
                     + "aurait du etre levee pour l'index y");
         } catch (IllegalArgumentException e) {
@@ -176,7 +162,7 @@ public class GrilleTest {
         Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
 
         try {
-            sudoku.setValue(TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_X, TEST_SETVALUE_LEVEE_EXCEPTION_X_VAL_Y, '6');
+            sudoku.setValue(15, 5, '6');
             fail("Une IllegalArgumentException aurait du etre levee pour x");
         } catch (IllegalArgumentException e) {
 
