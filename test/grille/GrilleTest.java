@@ -288,7 +288,31 @@ public class GrilleTest {
      */
     @Test
     public final void testPossibleLeveesDExceptions() {
-        //TODO
+        ystem.out.println("Test levees d'exceptions (valeurs incorrectes pour"
+                + " x, y et la valeur) pour la methode setValue() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
+        try {
+            sudoku.possible(-5, 5, '6');
+            fail("Une IllegalArgumentException aurait du etre levee pour x");
+        } catch (IllegalArgumentException e) {
+
+        }
+
+        try {
+            sudoku.possible(3, -4, '6');
+            fail("Une IllegalArgumentException aurait du etre levee pour y");
+        } catch (IllegalArgumentException e) {
+
+        }
+
+        // Valeur interdite
+        try {
+            sudoku.possible(3, 5, 'z');
+            fail("Une IllegalArgumentException aurait du "
+                    + "etre levee pour la valeur");
+        } catch (IllegalArgumentException e) {
+
+        }
 
     }
 
