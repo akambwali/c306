@@ -52,7 +52,10 @@ public interface Grille {
      * @param y position y dans la grille
      * @param value valeur a mettre dans la grille
      * @throws IllegalArgumentException si x ou y sont hors bornes (0-8)
-     * @throws IllegalArgumentException si la valeur est interdite 
+     * @throws IllegalArgumentException si la valeur est interdite aux vues des
+     * autres valeurs de la grille
+     * @throw IllegalArgumentException si value n'est pas un caractere autorise
+     * (''1', ...,'9')
      *
      */
     void setValue(int x, int y, char value) throws IllegalArgumentException;
@@ -63,7 +66,7 @@ public interface Grille {
      * @param x position x dans la grille
      * @param y position y dans la grille
      * @return valeur dans la case x,y
-     * @throws IllegalArgumentException si x ou y sont hors bornes
+     * @throws IllegalArgumentException si x ou y sont hors bornes (0-8)
      */
     char getValue(int x, int y) throws IllegalArgumentException;
 
@@ -84,7 +87,9 @@ public interface Grille {
      * @param value valeur a mettre dans la case
      * @return true si oui, false sinon
      * @throws IllegalArgumentException si la vavaleur est
-     * interdite
+     * interdite aux vues des autres valeurs de la grille
+     * @throws IllegalArgumentException si value n'est pas un caractere autorise
+     * (''1', ...,'9')
      *
      */
     boolean possible(int x, int y, char value) throws IllegalArgumentException;
