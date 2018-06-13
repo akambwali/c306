@@ -4,7 +4,7 @@ package solveur;
  *
  * Interface pour l'implementation d'un solveur.
  * @author KAM-WAL
- *
+ * @author AKALA Kouma
  */
 public interface ISolveur {
 
