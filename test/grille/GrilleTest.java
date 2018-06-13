@@ -288,7 +288,7 @@ public class GrilleTest {
      */
     @Test
     public final void testPossibleLeveesDExceptions() {
-        ystem.out.println("Test levees d'exceptions (valeurs incorrectes pour"
+        System.out.println("Test levees d'exceptions (valeurs incorrectes pour"
                 + " x, y et la valeur) pour la methode setValue() ...");
         Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
         try {
