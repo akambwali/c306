@@ -132,12 +132,15 @@ public final class SolveurTest {
         }
     }
 
-    /**
+   /**
      * Test de la méthode afficherSolution().
      */
     @Test
     public void testafficherSolution() {
-        //TODO
+        //test avec une grille non complète
+        SolveurImpl solveur2
+                = new SolveurImpl(new GrilleImpl(GRILLE_CORRECTE));
+        solveur2.afficherSolution();
     }
 
 }
