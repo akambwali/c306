@@ -3,8 +3,10 @@ package solveur;
 /**
  *
  * Interface pour l'implementation d'un solveur.
+ *
  * @author KAM-WAL
  * @author AKALA Kouma
+ *
  */
 public interface ISolveur {
 
@@ -17,7 +19,7 @@ public interface ISolveur {
 
     /**
      * Resoud la grille passee en parametre.
-     * 
+     *
      * @throws IllegalArgumentException si la grille à résoudre n'est pas
      * valable ou si aucune solution n'a pu être calculée
      * @return true si une solution est disponible, false sinon
