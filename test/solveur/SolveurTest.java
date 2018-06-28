@@ -94,13 +94,16 @@ public final class SolveurTest {
         assertEquals(false, solveur.verifierGrille());
     }
 
-
     /**
      * Test de la méthode resoudre().
      */
     @Test
     public void testResoudre() {
-        //TODO
+        SolveurImpl solveurGrilleCorrecteResolue =
+                new SolveurImpl(new GrilleImpl(GRILLE_CORRECTE));
+        assertEquals("Test de la méthode resoudre().",
+                      true,
+                      solveurGrilleCorrecteResolue.resoudre());
     }
 
     /**
@@ -108,7 +111,10 @@ public final class SolveurTest {
      */
     @Test
     public void testResolu() {
-        //TODO
+        SolveurImpl solveur
+                = new SolveurImpl(new GrilleImpl(GRILLE_CORRECTE));
+        boolean solution = solveur.resolu();
+        assertEquals(true, solution);
     }
 
     /**
