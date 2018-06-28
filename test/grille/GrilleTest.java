@@ -140,6 +140,52 @@ public class GrilleTest {
      * Test getValueLeveesDExceptions() pour y. Valeur de y.
      */
     static final int TEST_GETVALUE_LEVEE_EXCEPTION_Y_VAL_Y = 12;
+    
+    /**
+     * Test possibleLeveesDExceptions() pour x. Valeur de x.
+     */
+    static final int TEST_POSSIBLE_LEVEE_EXCEPTION_X_VAL_X = -5;
+
+    /**
+     * Test possibleLeveesDExceptions() pour x. Valeur de y.
+     */
+    static final int TEST_POSSIBLE_LEVEE_EXCEPTION_X_VAL_Y = 5;
+
+    /**
+     * Test setValueLeveesDExceptions() pour y. Valeur de x.
+     */
+    static final int TEST_POSSIBLE_LEVEE_EXCEPTION_Y_VAL_X = 3;
+
+    /**
+     * Test possibleLeveesDExceptions() pour y. Valeur de y.
+     */
+    static final int TEST_POSSIBLE_LEVEE_EXCEPTION_Y_VAL_Y = -4;
+
+    /**
+     * Test possibleLeveesDExceptions() caractere interdit. Valeur de x.
+     */
+    static final int TEST_POSSIBLE_LEVEE_EXCEPTION_VAL_INTERDITE_X = 3;
+
+    /**
+     * Test possibleLeveesDExceptions caractere interdit. Valeur de y.
+     */
+    static final int TEST_POSSIBLE_LEVEE_EXCEPTION_VAL_INTERDITE_Y = 5;
+
+    /**
+     * Test possible. Valeur de x.
+     */
+    static final int TEST_POSSIBLE_VAL_X = 3;
+
+    /**
+     * Test possible. Valeur de y.
+     */
+    static final int TEST_POSSIBLE_VAL_Y = 5;
+
+    /**
+     * Test possible. Valeur de y.
+     */
+    static final int TEST_POSSIBLE_VAL_Y_2 = 4;
+
     /**
      * Méthode principale.
      * @param args arguments de la méthode main
@@ -292,14 +338,16 @@ public class GrilleTest {
                 + " x, y et la valeur) pour la methode setValue() ...");
         Grille sudoku = new GrilleImpl(GRILLE_COMPLETE_9);
         try {
-            sudoku.possible(-5, 5, '6');
+            sudoku.possible(TEST_POSSIBLE_LEVEE_EXCEPTION_X_VAL_X,
+                    TEST_POSSIBLE_LEVEE_EXCEPTION_X_VAL_Y, '6');
             fail("Une IllegalArgumentException aurait du etre levee pour x");
         } catch (IllegalArgumentException e) {
 
         }
 
         try {
-            sudoku.possible(3, -4, '6');
+            sudoku.possible(TEST_POSSIBLE_LEVEE_EXCEPTION_Y_VAL_X,
+                    TEST_POSSIBLE_LEVEE_EXCEPTION_Y_VAL_Y, '6');
             fail("Une IllegalArgumentException aurait du etre levee pour y");
         } catch (IllegalArgumentException e) {
 
@@ -307,7 +355,8 @@ public class GrilleTest {
 
         // Valeur interdite
         try {
-            sudoku.possible(3, 5, 'z');
+            sudoku.possible(TEST_POSSIBLE_LEVEE_EXCEPTION_VAL_INTERDITE_X,
+                    TEST_POSSIBLE_LEVEE_EXCEPTION_VAL_INTERDITE_Y, 'z');
             fail("Une IllegalArgumentException aurait du "
                     + "etre levee pour la valeur");
         } catch (IllegalArgumentException e) {
@@ -321,6 +370,18 @@ public class GrilleTest {
      */
     @Test
     public final void testPossible() {
-        //TODO
+        System.out.println("Test de la methode possible() ...");
+        Grille sudoku = new GrilleImpl(GRILLE_INCOMPLETE_9);
+        // La valeur 6 existe deja dans le bloc, donc il n'est pas
+        // possible de la renseigner dans la grille.
+        // On s'attend a ce que la verification avec possible donne false.
+        assertEquals("Test valeur possible", false,
+                sudoku.possible(TEST_POSSIBLE_VAL_X, TEST_POSSIBLE_VAL_Y, '6'));
+        assertEquals("Test valeur possible", false,
+                sudoku.possible(TEST_POSSIBLE_VAL_X, TEST_POSSIBLE_VAL_Y, '1'));
+        assertEquals("Test valeur possible", false,
+                sudoku.possible(TEST_POSSIBLE_VAL_X,
+                        TEST_POSSIBLE_VAL_Y_2, '8'));
     }
+
 }
