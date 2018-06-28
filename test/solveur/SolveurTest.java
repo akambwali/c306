@@ -79,7 +79,8 @@ public final class SolveurTest {
      */
     @Test
     public void testConstructeurGrilleImpl() {
-        //TODO
+        SolveurImpl solveur =
+                new SolveurImpl(new GrilleImpl(GRILLE_CORRECTE));
     }
 
     /**
@@ -88,8 +89,11 @@ public final class SolveurTest {
      */
     @Test
     public void testVerifierGrille() {
-        //TODO
+        SolveurImpl solveur =
+                new SolveurImpl(new GrilleImpl(GRILLE_INCORRECTE));
+        assertEquals(false, solveur.verifierGrille());
     }
+
 
     /**
      * Test de la méthode resoudre().
