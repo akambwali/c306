@@ -122,7 +122,14 @@ public final class SolveurTest {
      */
     @Test
     public void testResoluAvecException() {
-        //TODO
+        try {
+            SolveurImpl solveur
+                    = new SolveurImpl(new GrilleImpl(GRILLE_INCORRECTE));
+            solveur.resolu();
+            fail("L'exception aurait du être levé pour grille non valide");
+        } catch (IllegalArgumentException e) {
+            //rien a faire, c'est normal qu'on ait l'exception
+        }
     }
 
     /**
